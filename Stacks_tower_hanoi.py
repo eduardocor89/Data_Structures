@@ -111,7 +111,7 @@ while (right_stack.get_size() != num_disks):
     to_stack = get_input()
     if from_stack.is_empty():
       print("\n\nInvalid Move. Try Again")
-    elif to_stack.is_empty() or from_stack.peek() > to_stack.peek():
+    elif to_stack.is_empty() or from_stack.peek() < to_stack.peek():
       disk = from_stack.pop()
       to_stack.push(disk)
       num_user_moves += 1
