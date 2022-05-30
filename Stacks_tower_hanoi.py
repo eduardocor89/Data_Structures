@@ -99,7 +99,7 @@ def get_input():
         
 #Play the Game
 num_user_moves = 0
-while right_stack.get_size() != num_disks:
+while (right_stack.get_size() != num_disks):
   print("\n\n\n...Current Stacks...")
   for stack in stacks:
     stack.print_items()
