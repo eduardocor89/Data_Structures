@@ -124,3 +124,56 @@ print(find_min([42, 17, 2, -1, 67]) == -1)
 print(find_min([]) == None)
 print(find_min([13, 72, 19, 5, 86]) == 5)
 
+
+'''
+Palindromes!
+The first two examples will be iterative ways of determining whether a string is a palindrome.
+The first one is less efficient than the next one.
+
+I cannot believe I figured this one out.
+'''
+
+# ITERATIVE method 1
+
+def is_palindrome(my_string):
+  while len(my_string) > 1:
+    if my_string[0] != my_string[-1]:
+      return False
+    my_string = my_string[1:-1]
+  return True 
+
+# ITERATIVE method 2
+
+def is_palindrome(my_string):
+  string_length = len(my_string)
+  middle_index = string_length // 2
+  for index in range(0, middle_index):
+    opposite_character_index = string_length - index - 1
+    if my_string[index] != my_string[opposite_character_index]:
+      return False  
+  return True
+
+# RECURSIVE adjusted for accepting upper case letters and spaces, but not punctuations?
+
+def is_palindrome(my_string):
+  my_string = my_string.strip(" ")
+  my_string = my_string.lower()
+  string_length = len(my_string)
+  middle_index = string_length // 2
+  if len(my_string) == 0:
+    return True
+  if my_string[0] == my_string[-1]:
+    return is_palindrome(my_string[1:-1])
+
+
+# test cases
+print(is_palindrome("abba") == True)
+print(is_palindrome("abcba") == True)
+print(is_palindrome("") == True)
+print(is_palindrome("abcd") == False)
+print(is_palindrome("Level") == True)
+print(is_palindrome("taco cat") == True)
+print(is_palindrome("Was it a car or a cat I saw") == True)
+
+
+
